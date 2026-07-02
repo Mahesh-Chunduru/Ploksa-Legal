@@ -1,0 +1,191 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../core/theme/app_colors.dart';
+
+class PrivacyPolicyScreen extends StatelessWidget {
+  const PrivacyPolicyScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final topPad = MediaQuery.of(context).padding.top;
+    final bottomPad = MediaQuery.of(context).padding.bottom;
+
+    return Scaffold(
+      backgroundColor: AppColors.paper,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: topPad + 8),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
+            child: GestureDetector(
+              onTap: () => context.pop(),
+              child: Container(
+                width: 44,
+                height: 44,
+                alignment: Alignment.center,
+                child: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 20,
+                  color: AppColors.ink,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.fromLTRB(16, 10, 16, 40 + bottomPad),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(6, 0, 6, 6),
+                    child: Text(
+                      'Privacy Policy',
+                      style: GoogleFonts.hankenGrotesk(
+                        fontSize: 34,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: -0.9,
+                        color: AppColors.ink,
+                        height: 1.06,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: Text(
+                      'Last updated: July 2, 2026',
+                      style: GoogleFonts.hankenGrotesk(
+                        fontSize: 13,
+                        color: AppColors.inkFaint,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  const _PolicySection(
+                    title: 'Introduction',
+                    body:
+                        'Ploxa helps you save and organise the location of your belongings across your homes, offices, and other spaces — so you always know exactly where things are kept.\n\nYour privacy matters to us. This policy explains what information we collect, how we use it, and the choices you have.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Information We Collect',
+                    body:
+                        'We may collect the following information when you use Ploxa:\n\n• Account details such as your name, email address, and authentication credentials.\n• User-created content including space names, rooms, containers, spots, item names, exact locations, notes, and photos you add.\n• Invite and sharing information when you share a space or invite another person.\n• Basic device and app information required for security, performance, crash reporting, and troubleshooting.\n• Any other information you voluntarily provide inside the app.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'How We Use Your Information',
+                    body:
+                        'The information we collect is used to:\n\n• Create and manage your Ploxa account.\n• Save and display your spaces, rooms, containers, spots, and items.\n• Allow shared access to spaces where you have enabled it.\n• Improve app performance, reliability, and the overall experience.\n• Provide customer support and troubleshoot issues.\n• Keep the app and your data secure.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Data Sharing',
+                    body:
+                        'Ploxa does not sell your personal data.\n\nWe may share data only with trusted third-party service providers that are necessary to operate the app — such as authentication, database, cloud hosting, analytics, crash reporting, or push notification services. These providers are bound to handle your data securely and only for the purposes we specify.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'User-Generated Content',
+                    body:
+                        'You are in control of the spaces, rooms, items, and location details you add to Ploxa. We recommend that you avoid storing sensitive personal or financial information unless you are comfortable with it being stored in the app.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Shared Spaces',
+                    body:
+                        'When you invite another person to a shared space, that person may be able to view or interact with the content of that space depending on the permissions you have granted within the app. Membership in one space does not automatically grant access to any other space you own or belong to.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Data Security',
+                    body:
+                        'We use reasonable technical and organisational measures to protect your data from unauthorised access, loss, or misuse.\n\nHowever, no digital system can be guaranteed to be 100% secure. We encourage you to use a strong password and keep your account credentials private.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Data Retention',
+                    body:
+                        'Your data is retained for as long as your account is active or as needed to provide you with the service. If you delete items, spaces, or your account, the related data will be removed or handled in accordance with app functionality and applicable legal requirements.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Your Choices & Rights',
+                    body:
+                        'You can update or delete your information directly inside the app where supported — for example, editing your profile, removing items, or deleting spaces.\n\nFor privacy-related requests that go beyond in-app controls, please contact us at the address listed below and we will be happy to assist.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: "Children's Privacy",
+                    body:
+                        'Ploxa is not intended for use by children below the minimum age required by applicable laws or app store guidelines. We do not knowingly collect personal information from children. If you believe a child has provided us with their information, please contact us so we can take appropriate action.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Changes to This Policy',
+                    body:
+                        'We may update this Privacy Policy from time to time to reflect changes in the app, our practices, or applicable laws. We encourage you to review this page periodically. Continued use of Ploxa after any changes constitutes your acceptance of the updated policy.',
+                  ),
+                  const SizedBox(height: 12),
+                  const _PolicySection(
+                    title: 'Contact Us',
+                    body:
+                        'If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please reach out to us:\n\nsupport@ploxa.com\n\nWe will do our best to respond promptly.',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PolicySection extends StatelessWidget {
+  const _PolicySection({required this.title, required this.body});
+
+  final String title;
+  final String body;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.line),
+        boxShadow: shadowSm,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.hankenGrotesk(
+              fontSize: 15.5,
+              fontWeight: FontWeight.w700,
+              color: AppColors.ink,
+              letterSpacing: -0.2,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            body,
+            style: GoogleFonts.hankenGrotesk(
+              fontSize: 14.5,
+              fontWeight: FontWeight.w400,
+              color: AppColors.inkSoft,
+              height: 1.55,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
