@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Ploksa Account</title>
+<meta name="description" content="Learn how to delete your Ploksa account and request deletion of associated app data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBFAF8;
+    --paper-2: #F1EFE9;
+    --surface: #FFFFFF;
+    --ink: #23292C;
+    --ink-soft: #6A7075;
+    --ink-faint: #9DA1A3;
+    --slate: #456073;
+    --slate-deep: #324A5A;
+    --gold: #C79A4B;
+    --danger: #C0584F;
+    --danger-soft: #F6E4E1;
+    --line: rgba(35, 41, 36, 0.07);
+    --line-strong: rgba(35, 41, 36, 0.12);
+    --shadow-lg: 0 10px 28px rgba(40, 40, 44, 0.10), 0 28px 64px rgba(40, 40, 44, 0.13);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(circle at top, var(--paper-2) 0%, var(--paper) 55%);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 40px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin: 8px 0 28px;
+  }
+
+  .brand svg {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .brand span {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    padding: 32px 24px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 28px;
+  }
+
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin: 30px 0 10px;
+    color: var(--slate-deep);
+  }
+
+  h2:first-of-type {
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper-2);
+    border-radius: 17px;
+    padding: 14px 16px;
+    margin: 4px 0 4px;
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-deep);
+    white-space: nowrap;
+  }
+
+  .arrow {
+    color: var(--ink-faint);
+    font-size: 14px;
+  }
+
+  .callout {
+    background: var(--danger-soft);
+    border: 1px solid rgba(192, 88, 79, 0.2);
+    border-radius: 17px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .callout .icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--danger);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .callout p {
+    margin: 0;
+    color: #7A342C;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+  }
+
+  li {
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .info-box {
+    background: var(--paper-2);
+    border-radius: 17px;
+    padding: 16px 18px;
+    margin: 4px 0 4px;
+  }
+
+  .info-box p {
+    margin: 0 0 8px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: var(--slate);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(69, 96, 115, 0.3);
+  }
+
+  a:hover {
+    color: var(--slate-deep);
+    border-bottom-color: var(--slate-deep);
+  }
+
+  .contact {
+    text-align: center;
+    background: var(--paper-2);
+    border-radius: 17px;
+    padding: 20px;
+    margin-top: 28px;
+  }
+
+  .contact p {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 28px 0 0;
+  }
+
+  footer {
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    margin-top: 28px;
+    color: var(--ink-faint);
+    font-size: 13px;
+  }
+
+  footer .links {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  footer a {
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+  }
+
+  footer a:hover {
+    color: var(--slate-deep);
+    border-bottom-color: var(--slate-deep);
+  }
+
+  @media (min-width: 640px) {
+    body {
+      padding: 56px 16px 56px;
+    }
+
+    .card {
+      padding: 44px 48px;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0" gradientUnits="objectBoundingBox">
+            <stop offset="0%" stop-color="#0A1628"/>
+            <stop offset="100%" stop-color="#163552"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#bg)"/>
+        <path fill-rule="evenodd" fill="white"
+              d="M 34 13
+                 L 47 13
+                 A 27 27 0 0 1 47 67
+                 L 47 79
+                 A 8 8 0 0 1 39 87
+                 L 34 87
+                 A 8 8 0 0 1 26 79
+                 L 26 21
+                 A 8 8 0 0 1 34 13 Z
+                 M 61 40 A 14 14 0 1 1 33 40 A 14 14 0 1 1 61 40 Z"/>
+        <circle cx="47" cy="40" r="9" fill="#C79A4B"/>
+      </svg>
+      <span>Ploksa</span>
+    </div>
+
+    <main class="card">
+      <h1>Delete Your Ploksa Account</h1>
+      <p class="subtitle">Ploksa allows you to delete your account and all associated app data at any time.</p>
+
+      <h2>Delete from the app</h2>
+      <p>You can delete your account directly from inside the Ploksa app by following this path:</p>
+      <div class="steps">
+        <span class="step">Open Ploksa</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Profile</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Delete Account</span>
+      </div>
+
+      <div class="callout">
+        <span class="icon">!</span>
+        <p>This action is permanent and cannot be undone. Once your account is deleted, it cannot be recovered.</p>
+      </div>
+
+      <h2>What gets deleted</h2>
+      <p>Deleting your account removes your profile and all data linked to it, including:</p>
+      <ul>
+        <li>Account profile information</li>
+        <li>Saved spaces</li>
+        <li>Rooms</li>
+        <li>Spots or containers</li>
+        <li>Items</li>
+        <li>Item location details</li>
+        <li>Other user-created data linked to your account</li>
+      </ul>
+
+      <h2>No longer have access to the app?</h2>
+      <p>If you can no longer access Ploksa, you can request account deletion by email. Please email us from your <strong>registered Ploksa email address</strong> and include:</p>
+      <div class="info-box">
+        <p>&bull; Registered Ploksa email address</p>
+        <p>&bull; Request type: <strong>Delete Ploksa account</strong></p>
+        <p>&bull; Optional reason for deletion</p>
+      </div>
+      <p>Send your request to <a href="mailto:support@ploksa.com">support@ploksa.com</a>.</p>
+
+      <h2>Processing time</h2>
+      <p>We aim to process account deletion requests within 7 to 30 days after verifying the request.</p>
+
+      <h2>Data retention</h2>
+      <p>Some limited information may be retained temporarily where required for legal, security, fraud prevention, backup, or compliance purposes. Any retained data will not be used for active app functionality.</p>
+
+      <hr>
+
+      <div class="contact">
+        <p>For questions about account deletion or privacy, contact us at <a href="mailto:support@ploksa.com">support@ploksa.com</a>.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Ploksa</p>
+      <div class="links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/delete-account">Delete Account</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
